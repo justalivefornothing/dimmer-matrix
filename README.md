@@ -1,27 +1,14 @@
 # Dimmer Matrix
 
-A lights-out puzzle with a GF(2) Gaussian-elimination solver that proves solvability and shows the minimal press set.
+Lights Out, but the interesting part is the solver.
 
-## What it does
+Every board is a vector over GF(2). Every press is a column of the toggle matrix. Solving the puzzle is just solving `A x = b` with XOR as addition — and the UI shows the actual row reduction scrolling by while the board lights up the next lamp to press.
 
-- Board sizes 3×3 through 8×8
-- Click-to-toggle plus-shaped neighborhoods
-- Solver via Gaussian elimination over GF(2)
-- Solvability check + null-space explanation for unsolvable boards
-- Minimal-press solution
-- Step-by-step solution playback
-- Seeded random solvable puzzle generator
-- Move counter, par (optimal presses), and undo
+Board sizes run from 3×3 to 8×8. Plus-shaped neighbourhoods. Seeded generator that only produces solvable boards. Minimal press set via null-space enumeration. Undo, move counter, par.
 
-The UI surfaces the linear algebra: a terminal-style panel scrolls through the actual row reduction while the board highlights which lamps to press.
+Core lives in pure TypeScript under `lightsout/` (no DOM), so the algebra is unit-tested under Node. UI is React + Vite + Tailwind.
 
-## Tech
-
-Pure TypeScript core (`lightsout/`) with no DOM dependency so it can be unit-tested under Node. UI is React + Vite + Tailwind.
-
-## Status
-
-See `PLAN.md` for the full architecture and milestones. Core solver and UI scaffolding are present; remaining polish and publish steps are listed there.
+Full architecture and remaining milestones are in `PLAN.md`.
 
 ## License
 
