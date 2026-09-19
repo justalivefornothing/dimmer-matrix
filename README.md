@@ -1,15 +1,26 @@
 # Dimmer Matrix
 
-Classic lights-out on an n×n grid.
+Classic lights-out on an n×n grid with a **GF(2) Gaussian-elimination** solver.
+
+## Features
 
 - Click a cell to flip it and its orthogonal neighbors
-- **Solve** builds the linear system over GF(2) and runs Gaussian elimination
-- Highlights a minimal press set when the board is solvable
+- Size 2–8, random / clear / solve
+- **Solve** builds the linear system and highlights a minimal press set
+- Reports unsolvable boards when the system has no solution
 
 ## Run
 
-Open `index.html` or:
+Open `index.html` or `npx serve .`
 
-```bash
-npx serve .
-```
+## Files
+
+| File | Role |
+|------|------|
+| `index.html` | Board shell |
+| `app.js` | Game + GF(2) solver |
+| `styles.css` | Neon board theme |
+
+## License
+
+MIT
