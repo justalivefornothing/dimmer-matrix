@@ -1,0 +1,54 @@
+:root {
+  --bg: #12141a;
+  --on: #f4d35e;
+  --off: #2a2f3a;
+  --hint: #5b8def;
+  --text: #e8eaed;
+  --muted: #9aa0a6;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+}
+header { text-align: center; max-width: 36rem; }
+h1 { margin: 0 0 0.35rem; }
+header p { color: var(--muted); font-size: 0.95rem; }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 1.25rem 0;
+}
+button, input {
+  background: #1e2430;
+  border: 1px solid #3a4254;
+  color: var(--text);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  cursor: pointer;
+}
+button:hover { border-color: var(--hint); }
+#board {
+  display: grid;
+  gap: 6px;
+}
+.cell {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  border: none;
+  background: var(--off);
+  cursor: pointer;
+  transition: background 0.12s, box-shadow 0.12s;
+}
+.cell.on { background: var(--on); box-shadow: 0 0 12px rgba(244, 211, 94, 0.45); }
+.cell.hint { outline: 2px solid var(--hint); outline-offset: 2px; }
+#status { color: var(--muted); font-size: 0.9rem; }

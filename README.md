@@ -1,15 +1,15 @@
 # Dimmer Matrix
 
-Lights Out, but the interesting part is the solver.
+Classic lights-out on an n×n grid.
 
-Every board is a vector over GF(2). Every press is a column of the toggle matrix. Solving the puzzle is just solving `A x = b` with XOR as addition — and the UI shows the actual row reduction scrolling by while the board lights up the next lamp to press.
+- Click a cell to flip it and its orthogonal neighbors
+- **Solve** builds the linear system over GF(2) and runs Gaussian elimination
+- Highlights a minimal press set when the board is solvable
 
-Board sizes run from 3×3 to 8×8. Plus-shaped neighbourhoods. Seeded generator that only produces solvable boards. Minimal press set via null-space enumeration. Undo, move counter, par.
+## Run
 
-Core lives in pure TypeScript under `lightsout/` (no DOM), so the algebra is unit-tested under Node. UI is React + Vite + Tailwind.
+Open `index.html` or:
 
-Full architecture and remaining milestones are in `PLAN.md`.
-
-## License
-
-MIT
+```bash
+npx serve .
+```
